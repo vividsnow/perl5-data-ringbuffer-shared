@@ -57,7 +57,7 @@ jobs:
           perl-version: '5.40'
       - run: cpanm -n Devel::PPPort
       - run: perl Makefile.PL && make && make test
-
+      - run: prove -b xt/slot_sequence.t
   test-ubsan:
     runs-on: ubuntu-latest
     name: UBSan
@@ -84,7 +84,7 @@ jobs:
           perl-version: '5.40'
       - run: cpanm -n Devel::PPPort BSD::Resource Time::HiRes
       - run: perl Makefile.PL && make
-      - run: AUTHOR_TESTING=1 prove -b -j2 xt/*.t
+      - run: AUTHOR_TESTING=1 prove -b xt/*.t
         env:
           AUTHOR_TESTING: 1
 
